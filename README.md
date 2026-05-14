@@ -1,4 +1,4 @@
-# Sentimind API | Node.js + Python Integration
+# Sentimind API  | Node.js + Python Integration
 
 Este projeto é uma API desenvolvida para demonstrar a integração entre **Node.js** e **Python**, utilizando o melhor de cada stack para processamento de linguagem natural (NLP).
 
