@@ -7,8 +7,7 @@ app.get('/analisar', (req, res) => {
     const textoParaAnalisar = req.query.texto || "Estou muito feliz com este projeto";
     
     // Aqui o Node chama o Python "na mão"
-    const pythonProcess = spawn('python', ['analyzer.py', textoParaAnalisar]);
-
+const pythonProcess = spawn('python3', ['analyzer.py', textoParaAnalisar]);
     let resultado = "";
 
     pythonProcess.stdout.on('data', (data) => {
