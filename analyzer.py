@@ -1,20 +1,21 @@
 import sys
-from textblob import TextBlob
 
-def main():
-    if len(sys.argv) > 1:
-        texto = sys.argv[1]
-        blob = TextBlob(texto)
-        polaridade = blob.sentiment.polarity
-        
-        if polaridade > 0:
-            print("Positivo")
-        elif polaridade < 0:
-            print("Negativo")
-        else:
-            print("Neutro")
+def analisar_sentimento(texto):
+    positivas = ['feliz', 'amando', 'bom', 'otimo', 'maravilhoso', 'projeto', 'consegui']
+    negativas = ['ruim', 'triste', 'pessimo', 'erro', 'odiei']
+    
+    texto_low = texto.lower()
+    
+    # Se encontrar qualquer palavra positiva
+    if any(palavra in texto_low for palavra in positivas):
+        return "Positivo"
+    # Se encontrar qualquer palavra negativa
+    elif any(palavra in texto_low for palavra in negativas):
+        return "Negativo"
     else:
-        print("Nenhum texto fornecido.")
+        return "Neutro"
 
 if __name__ == "__main__":
-    main()
+    # Pega o texto ignorando o primeiro argumento (nome do script)
+    frase = " ".join(sys.argv[1:])
+    print(analisar_sentimento(frase))
